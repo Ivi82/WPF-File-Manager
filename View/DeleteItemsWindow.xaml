@@ -1,0 +1,25 @@
+<Window x:Class="MVVM_Com.DeleteItemsWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+
+        Title="Simple Commander" SizeToContent="Height" WindowStartupLocation="CenterScreen" FontSize="14">
+
+            <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding CloseWindowCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid Background="WhiteSmoke">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+		<TextBlock Margin="4" Grid.Row="0">Удаляем файл(ы)/каталог(и):</TextBlock>
+
+		 <TextBlock Margin="4" Grid.Row="1" MinWidth="300" Text="{Binding Path=FileName, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+    </Grid>
+</Window>

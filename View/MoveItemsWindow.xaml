@@ -1,0 +1,34 @@
+﻿<Window x:Class="MVVM_Com.MoveItemsWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+Title="Simple Commander"  Height="215" Width="600" WindowStartupLocation="CenterScreen"  FontSize="14">
+
+    <Grid  Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+<RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Margin="4" Grid.Row="0"  Text="{Binding Path=FirstString, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Margin="4" Grid.Row="1"  Text="{Binding Path=FileName, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding Path=VisibilityText, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Margin="4" Grid.Row="2"  >в</TextBlock>
+        <TextBox Margin="4" Grid.Row="3" Background="White" Foreground="DarkGreen" Text="{Binding Path=PathName, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Margin="4" Grid.Row="4" Text="{Binding Path=SecondString, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding Path=VisibilitySecondString, UpdateSourceTrigger=PropertyChanged}" />
+
+        <WrapPanel Grid.Row="5" HorizontalAlignment="Right" Margin="4">
+
+        	 <Button IsDefault="True" MinWidth="80" Margin="4" Visibility="{Binding Path=Visibility, UpdateSourceTrigger=PropertyChanged}" Command="{Binding YesALLButton}">Все файлы и каталоги</Button>
+
+            <Button IsDefault="True" MinWidth="60" Margin="4" Visibility="{Binding Path=VisibilityButtonYes, UpdateSourceTrigger=PropertyChanged}"  Command="{Binding YesButton}">Да</Button>
+
+        	<Button IsDefault="True" MinWidth="80" Margin="4" Visibility="{Binding Path=Visibility, UpdateSourceTrigger=PropertyChanged}" Command="{Binding NoButton}">Нет</Button>
+
+            <Button IsCancel="True" MinWidth="60"  Margin="4" Command="{Binding CanselButton}">Отмена</Button>
+        </WrapPanel>
+    </Grid>
+</Window>
